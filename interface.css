@@ -1,0 +1,257 @@
+/* debug border */
+/** { border: 1px dashed rgba(255,0,0,.5); }*/
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, san-serif;
+    font-size: 1.75em;
+    font-weight: 400;
+}
+
+.glyphicon {
+    /* fixes glyphicon's strange align */
+    vertical-align: -1px;
+}
+
+.btn {
+    vertical-align: middle;
+}
+
+.page-header {
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.page-header * {
+    display: inline-block;
+}
+
+#res-power-panel {
+    background-color: rgb(255,200,0);
+}
+
+#res-power-progress .progress-bar {
+    background-color: rgb(255,200,0);
+}
+
+#res-water-panel {
+    background-color: rgb(90,160,235);
+}
+
+#res-water-progress .progress-bar:nth-of-type(2) {
+    background-color: rgb(90,160,235);
+}
+
+#water-icon {
+    color: rgba(230,230,230,.75);
+}
+
+ /*wastewater */
+#res-wastewater-panel {
+    background-color: rgb(168, 145, 87);
+}
+
+#res-water-progress .progress-bar:nth-of-type(1) {
+    background-color: rgb(168, 145, 87);
+}
+
+#res-air-panel {
+    background-color: rgb(215,235,215);
+}
+
+#res-air-progress .progress-bar:nth-of-type(1) {
+    background-color: rgb(215,235,215);
+}
+/* wasteair */
+#res-air-progress .progress-bar:nth-of-type(2) {
+    background-color: rgb(160,160,160);
+}
+
+#res-metal-panel {
+    background-color: rgb(160,160,160);
+}
+
+#res-metal-progress .progress-bar:nth-of-type(1) {
+    background-color: rgb(160,160,160);
+}
+
+.panel {
+    min-width: 60px;
+    /*padding: 5px;*/
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    white-space: nowrap;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.panel-body {
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+    padding: 5px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.panel .btn-group .btn {
+    border-radius: 0px;
+}
+
+.panel, 
+.panel-heading, 
+.panel-footer {
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border: 0;
+}
+
+.panel-horizontal {
+    display: table !important;
+}
+
+.panel.panel-horizontal > .panel-heading,
+.panel.panel-horizontal > .panel-body {
+    display: table-cell !important;
+}
+
+.panel.panel-horizontal > .panel-heading {
+    border-radius: 4px 0px 0px 4px;
+    border-top: 0;
+    border-bottom: 0;
+    /*border-right: 1px solid #ddd;*/
+}
+
+.panel.panel-horizontal > .panel-footer {
+    border-radius: 0px 4px 4px 0px;
+    border-top: 0;
+    border-bottom: 0;
+    /*border-left: 1px solid #ddd;*/
+}
+
+.panel-machine > .panel-heading {
+    width: 20%;
+}
+.panel-machine > .panel-body {
+    float: right;
+}
+
+span.info {
+    font-size: 0.75em;
+    font-style: italic;
+}
+
+.container {
+    margin-top: 10px;
+    float: left;
+}
+
+.row.div {
+    padding: 10px;
+    margin: 10px;
+    min-height: 100%;
+    height: 100%;
+    float: left;
+    width: 100%;
+}
+
+.row-eq-height {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex:1 1 auto !important;
+    width: 100%;
+}
+
+/* columns */
+div[class^="col"] {
+    display: inline-block;
+
+    /* solves chrome bug */
+    height: 100% !important;
+}
+
+#bootstrap-overrides .progress {
+    min-width: 40px;
+    width: 90%;
+    height: 250px;
+
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    text-align: center;
+
+    border: 1px solid rgba(0,0,0,.5);
+}
+
+.vertical {
+    display: block;
+
+    transform-origin: center;
+    -webkit-transform: scaleY(-1);
+    -moz-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.progress-bar {
+    height: 0%;
+}
+
+.vertical .progress-bar {
+    -webkit-transition: height 0.3s ease;
+    -moz-transition: height 0.3 ease;
+    -o-transition: height 0.3s ease;
+    transition: height 0.3s ease;
+
+    width: 100%;
+    height: 0;
+}
+
+.vertical .progress-bar-label {
+    font-size: .75em;
+}
+
+.progress span{
+    color: black;
+    position: absolute;
+    margin: 0;
+    top: 0%;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    font-weight: bold;
+    display: block;
+
+    transform-origin: left;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+    transform-origin: center;
+    -webkit-transform: scaleY(-1);
+    -moz-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+#panel-machines .btn-buy {
+    float: right;
+    width: 100%;
+}
+
+/* TEMPORARY DISABLED */
+.btn-upgrade {
+    display: none !important;
+}

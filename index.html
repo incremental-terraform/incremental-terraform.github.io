@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Incremental-Terraform</title>
+        <meta charset="utf-8">
+        <!-- BOOTSTRAP 3.3.7 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="interface.css">
+    </head>
+    <body id="bootstrap-overrides" class="index">
+        <div class="container-fluid">
+            <h2>Incremental-Terraform
+            </br>
+            <button class="btn btn-default" id="save-button">Save <span class="glyphicon glyphicon-floppy-save"></span></button>
+            <button class="btn btn-default" id="delete-save-button">Delete Local Save <span class="glyphicon glyphicon-trash"></span></button>
+            </h2>
+            <ul class="nav nav-tabs">
+                <li class="active" id="tab-spaceship">
+                    <a data-toggle="tab" href="#spaceship">Spaceship</a>
+                </li>
+                <li id="tab-planet">
+                    <a data-toggle="tab" href="#planet">Planet</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="spaceship" class="tab-pane active">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="panel panel-default" id="panel-resources">
+                                <div class="panel-heading">
+                                    <h3>Resources</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="panel" id="res-power-panel">
+                                                <div class="panel-heading">
+                                                    <span class="glyphicon glyphicon-flash"></span><strong> Power: <span id="res-power">0</span><small> <span id="res-power-income">(+0)</span></small></strong>
+                                                </div>
+                                            </div>
+                                            <div class="panel" id="res-air-panel">
+                                                <div class="panel-heading">
+                                                    <span class="glyphicon glyphicon-cloud" id="air-icon"></span><strong> Air: <span id="res-air">0</span><small> <span id="res-air-income">(+0)</span></small></strong>
+                                                </div>
+                                            </div>
+                                            <div class="panel" id="res-water-panel">
+                                                <div class="panel-heading">
+                                                    <span class="glyphicon glyphicon-tint" id="water-icon"></span><strong> Water: <span id="res-water">0</span><small> <span id="res-water-income">(+0)</span></small></strong>
+                                                </div>
+                                                <div class="panel-footer" id="res-wastewater-panel">
+                                                    <span class="glyphicon glyphicon-tint"></span><strong> Wastewater: <span id="res-wastewater">0</span><small> <span id="res-wastewater-income">(+0)</span></small></strong>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="panel" id="res-metal-panel">
+                                                <div class="panel-heading">
+                                                    <span class="glyphicon glyphicon-cog"></span><strong> Metal: <span id="res-metal">0</span><small> <span id="res-metal-income">(+0)</span></small></strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <div class="progress vertical"
+                                                        id="res-power-progress" >
+                                                        <div class="progress-bar"
+                                                            role="progressbar"
+                                                            aria-valuenow="0"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                        <span class="progress-bar-label"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="progress vertical"
+                                                        id="res-air-progress" >
+                                                        <div class="progress-bar"
+                                                            role="progressbar"
+                                                            aria-valuenow="0"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                        <div class="progress-bar progress-bar-striped active"
+                                                            role="progressbar"
+                                                            aria-valuenow="0"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                        <span class="progress-bar-label"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="progress vertical"
+                                                        id="res-water-progress">
+                                                        <div class="progress-bar progress-bar-striped active"
+                                                            role="progressbar"
+                                                            aria-valuenow="0"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                        <div class="progress-bar progress-bar-striped active"
+                                                            role="progressbar"
+                                                            aria-valuenow="0"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                        <span class="progress-bar-label"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="progress vertical"
+                                                        id="res-metal-progress" >
+                                                        <div class="progress-bar"
+                                                            role="progressbar"
+                                                            aria-valuenow="0"
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                        </div>
+                                                        <span class="progress-bar-label"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="panel panel-default" id="panel-machines">
+                                <div class="panel-heading">
+                                    <h3>Machines</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-battery">
+                                        <div class="panel-heading">
+                                            Battery<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body pull-right">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-solarcell">
+                                        <div class="panel-heading">
+                                            Solar Cell<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-airtank">
+                                        <div class="panel-heading">
+                                            Airtank<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-airfilter">
+                                        <div class="panel-heading">
+                                            Airfilter<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-watertank">
+                                        <div class="panel-heading">
+                                            Watertank<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-waterfilter">
+                                        <div class="panel-heading">
+                                            Waterfilter<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-metalstorage">
+                                        <div class="panel-heading">
+                                            Metal Storage<span class="machine-label"></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary panel-horizontal panel-machine" id="panel-machine-metalcollector">
+                                        <div class="panel-heading">
+                                            Metal Collector
+                                        </div>
+                                        <div class="panel-body">
+                                            <span class="machine-label"></span>
+                                            <div class="btn-group btn-group-justified">
+                                                <a class="btn btn-default btn-buy"><strong>Buy <span class="glyphicon glyphicon-plus-sign"></span><small><span class="button-label"></span></small></strong></a>
+                                                <a class="btn btn-default btn-upgrade"><strong>Upgrade <span class="glyphicon glyphicon-upload"></span><small> <span class="button-label"></span></small></strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="planet" class="tab-pane">
+                    <h1>This is not the planet you are looking for.</h1>
+                </div>
+            </div>
+        </div>
+<!-- init.js initializes variables in main.js -->
+<script src="init.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
