@@ -7,7 +7,7 @@ var initFile = {
 			"capacity": {
 				"power": 100,
 			},
-			"count":1,
+			"count":0,
 		},
 		"solarcell": {
 			"price": {
@@ -16,7 +16,7 @@ var initFile = {
 			"output": {
 				"power": 1,
 			},
-			"count":1,
+			"count":0,
 		},
 		"airtank": {
 			"price": {
@@ -25,7 +25,7 @@ var initFile = {
 			"capacity": {
 				"air": 100,
 			},
-			"count":1,
+			"count":0,
 		},
 		"airfilter": {
 			"price": {
@@ -46,7 +46,7 @@ var initFile = {
 			"capacity": {
 				"water": 100,
 			},
-			"count":1,
+			"count":0,
 		},
 		"waterfilter": {
 			"price": {
@@ -68,7 +68,7 @@ var initFile = {
 			"capacity":{
 				"metal":100,
 			},
-			"count":1,
+			"count":0,
 		},
 		"metalcollector": {
 			"price": {
@@ -96,8 +96,22 @@ var initFile = {
 		"metalcollector",
 	],
 	"Resources":{
-		"metal": 20,
-		"water": 20,
-		"wastewater": 20,
+		"power": {
+			"baseCapacity": 100,
+		},
+		"air": {
+			"baseCapacity": 100,
+		},
+		"metal": {
+			"baseCapacity": 100,
+			"value": 20,
+		},
+		"water": {
+			"baseCapacity": 100,
+			"value": 20,
+		},
+		"wastewater": {
+			"value": 20,
+		},
 	},
 };

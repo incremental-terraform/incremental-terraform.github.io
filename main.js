@@ -323,8 +323,9 @@ window.onload = function() {
             converter.count = machine.count;
         }
         for(var key in initFile.Resources){
-            var value = initFile.Resources[key];
-            Resources[key].value = value;
+            var resource = initFile.Resources[key];
+            Resources[key].baseCapacity = resource.baseCapacity | 0;
+            Resources[key].value = resource.value | 0;
         }
     }
 
